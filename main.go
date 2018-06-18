@@ -21,6 +21,7 @@ func main() {
 	http.HandleFunc("/getPowerschoolPhoto", getPowerschoolPhoto)
 	http.HandleFunc("/getPowerschoolInfo", getPowerschoolInfo)
 	http.HandleFunc("/getMilesplitAthlete", getAthlete)
+	http.Handle("/", http.FileServer(http.Dir("./home")))
 	if err := http.ListenAndServe(":8000", nil); err != nil {
 		panic(err)
 	}
